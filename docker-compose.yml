@@ -1,0 +1,28 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins
+    container_name: jenkins-server
+    ports:
+      - "8091:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins-home-demo:/var/jenkins_home
+    networks:
+      - deployment-network
+  zap:
+    build:
+      context: .
+    container_name: zap
+    ports: 
+      - "8090:8090"
+      - "8888:8080"
+    volumes:
+      - zap-volume-demo:/zap/wrk:rw
+    networks:
+      - deployment-network
+volumes:
+  jenkins-home-demo:
+  zap-volume-demo:
+networks:
+  deployment-network:
