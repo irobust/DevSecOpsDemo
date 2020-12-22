@@ -4,10 +4,20 @@
 * docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-api-scan.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%)
 * docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-full-scan.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%)
 
+### Build custom image
+* docker build -t zap .
+* docker exec -it zap sh (Execute shell)
+
 ### Working with ZAP cli
+* docker exec zap zap-cli -p 8090 open-url http://demo.testfire.net
 * zap-cli quick-scan -s xss,sqli --spider -r http://demo.testfire.net
 * zap-cli report -o ZAP_Report.html -f html
 
 ### Working with API
 * Go to http://localhost:8090/ui
-* 
+* CURL "http://localhost:8090/JSON/spider/action/scan/?zapapiformat=JSON&formMethod=GET&url=http://demo.testfire.net"
+* curl "http://localhost:8090/JSON/core/view/alerts"
+* curl "http://localhost:8090/HTML/core/view/alerts"
+
+### Generate HTML report
+* curl "http://localhost:8090/OTHER/core/other/htmlreport/?formMethod=GET" > ZAP_Report.HTML
