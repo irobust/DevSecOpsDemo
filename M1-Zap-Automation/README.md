@@ -21,3 +21,10 @@
 
 ### Generate HTML report
 * curl "http://localhost:8090/OTHER/core/other/htmlreport/?formMethod=GET" > ZAP_Report.HTML
+
+### Run basic-scan.py
+* Set target at line 8
+* Set proxy at line 12
+* pip install python-owasp-zap-v2.4
+* Read more detail at https://pypi.org/project/python-owasp-zap-v2.4/
+* python basic-scan.py
