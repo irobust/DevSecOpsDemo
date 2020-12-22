@@ -7,7 +7,6 @@
 ## Module 2 - Inject OWASP ZAP into CI Pipeline
 ## Module 3 - Add more tools with kali linux
 ## Module 4 - Check Code Quality
-## Module 5 - Mobile
 ## Module 5 - Continueous Compilance with Inspec
 
 DevSecOps Useful Resources
