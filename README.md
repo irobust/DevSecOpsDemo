@@ -18,3 +18,4 @@ DevSecOps Useful Resources
 * https://github.com/devsecops/awesome-devsecops
 * http://dev-sec.io
 * https://github.com/dev-sec/cis-docker-benchmark
+* https://github.com/openstack/ansible-hardening
