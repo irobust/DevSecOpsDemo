@@ -1,8 +1,8 @@
 ## Module 1 - How to Automate OWASP ZAP
 ### Baseline scan
-* docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-baseline.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%)
-* docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-api-scan.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%)
-* docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-full-scan.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%)
+* docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-baseline.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%, MaxOS -> $(pwd))
+* docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-api-scan.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%, MaxOS -> $(pwd))
+* docker run -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-full-scan.py -t http://demo.testfire.net (Powershell -> ${PWD}, Command-line -> %cd%, MaxOS -> $(pwd))
 
 ### Build custom image
 * docker build -t zap .
@@ -21,6 +21,12 @@
 
 ### Generate HTML report
 * curl "http://localhost:8090/OTHER/core/other/htmlreport/?formMethod=GET" > ZAP_Report.HTML
+
+### ZAP Plugins
+* -addoninstall  openapi
+* curl  "http://localhost:8090/UI/openapi/"
+* curl "http://localhost:8090/JSON/openapi/action/importUrl/?zapapiformat=JSON&formMethod=GET&url=https://petstore.swagger.io/v2/swagger.json&hostOverride="
+
 
 ### Run basic-scan.py
 * Set target at line 8
