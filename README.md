@@ -5,6 +5,8 @@
     ### Writing custom script
     ### ZAP SDK with Python
 ## Module 2 - Inject OWASP ZAP into CI Pipeline
+    ### Install ZAP plugins
+    ### Control slave with docker
 ## Module 3 - Add more tools with kali linux
 ## Module 4 - Check Code Quality
 ## Module 5 - Continueous Compilance with Inspec
