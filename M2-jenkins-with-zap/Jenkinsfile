@@ -3,25 +3,9 @@ pipeline {
     dockerfile {
         filename 'Dockerfile'
         dir 'M2-jenkins-with-zap'
-        args '-u root'
     }
   }
   stages {
-    stage('tfsec') {
-        agent {
-            docker { 
-                image 'tfsec/tfsec-ci:v0.57.1' 
-                reuseNode true
-            }
-        }
-        steps{
-            script {
-                docker.inside(image: 'tfsec/tfsec-ci:v0.57.1') {
-                    sh 'tfsec -h'
-                }
-            }
-        }
-    }
     stage('Test') {
       steps {
         sh '''
