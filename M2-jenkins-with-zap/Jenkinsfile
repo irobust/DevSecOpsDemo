@@ -21,11 +21,6 @@ pipeline {
                 }
             }
         }
-        steps {
-            sh '''
-                tfsec . --no-color
-            '''
-        }
     }
     stage('Test') {
       steps {
