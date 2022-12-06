@@ -3,7 +3,6 @@ pipeline {
     dockerfile {
         filename 'Dockerfile'
         dir 'M2-Jenkins-with-zap'
-        label 'owasp-zap'
     }
   }
   stages {
