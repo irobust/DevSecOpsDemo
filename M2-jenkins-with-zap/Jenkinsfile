@@ -6,20 +6,20 @@ pipeline {
         args '-u root'
     }
   }
-  stage('tfsec') {
-    agent {
-        docker { 
-            image 'tfsec/tfsec-ci:v0.57.1' 
-            reuseNode true
+  stages {
+    stage('tfsec') {
+        agent {
+            docker { 
+                image 'tfsec/tfsec-ci:v0.57.1' 
+                reuseNode true
+            }
+        }
+        steps {
+            sh '''
+                tfsec . --no-color
+            '''
         }
     }
-    steps {
-    sh '''
-        tfsec . --no-color
-    '''
-    }
-  }
-  stages {
     stage('Test') {
       steps {
         sh '''
