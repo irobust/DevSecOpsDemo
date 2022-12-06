@@ -3,7 +3,7 @@ pipeline {
     dockerfile {
         filename 'Dockerfile'
         dir 'M2-jenkins-with-zap'
-        args '-u jenkins'
+        args '-u zap'
     }
   }
   stages {
