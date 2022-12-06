@@ -9,7 +9,7 @@ target = 'http://localhost:3000'
 apikey = 'changeme' # Change to match the API key set in ZAP, or use None if the API key is disabled
 #
 # By default ZAP API client will connect to port 8080
-zap = ZAPv2(proxies={'http': 'http://localhost:8090', 'https': 'http://localhost:8090'})
+zap = ZAPv2(proxies={'http': 'http://localhost:8001', 'https': 'http://localhost:8001'})
 # Use the line below if ZAP is not listening on port 8080, for example, if listening on port 8090
 # zap = ZAPv2(apikey=apikey, proxies={'http': 'http://127.0.0.1:8090', 'https': 'http://127.0.0.1:8090'})
 
@@ -38,7 +38,7 @@ print ('Passive Scan completed')
 
 print ('Active Scanning target {}'.format(target))
 scanid = zap.ascan.scan(target)
-while (int(zap.ascan.status(scanid)) < 100):
+while (int(zap.ascan.status(scanid)) < 80):
     # Loop until the scanner has finished
     print ('Scan progress %: {}'.format(zap.ascan.status(scanid)))
     time.sleep(5)
