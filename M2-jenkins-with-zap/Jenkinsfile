@@ -2,7 +2,7 @@ pipeline {
   agent { 
     dockerfile {
         filename 'Dockerfile'
-        dir 'M2-Jenkins-with-zap'
+        dir 'M2-jenkins-with-zap'
     }
   }
   stages {
